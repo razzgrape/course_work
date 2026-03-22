@@ -149,7 +149,7 @@ class Evaluator:
         parseable = 0
         errors = []
 
-        key = "pos" if task == "pos" else "lemma"
+        key = "pos" if "pos" in task else "lemma"
 
         llm_times = []
         tool_times = []
@@ -296,7 +296,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Оценка результатов")
     parser.add_argument(
         "--task",
-        choices=["pos", "lemma"],
+        choices=["pos", "lemma", "pos_ambiguous", "lemma_ambiguous"],
         required=True,
         help="Задача: pos или lemma",
     )
